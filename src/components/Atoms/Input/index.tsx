@@ -1,8 +1,6 @@
 import './_index.scss';
 import { useField } from 'formik';
 
-// Custom Components
-
 type Params = {
   name: string;
   type?: string;

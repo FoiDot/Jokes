@@ -1,10 +1,12 @@
 import './_index.scss';
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
+import moment from 'moment';
 
 // Custom components
 import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
+import DateTimePicker from 'components/Atoms/DateTimePicker';
 import JokeSchema from 'schemas/jokerShema';
 
 type Joke = {
@@ -19,21 +21,23 @@ type Joke = {
 type Props = {
   data: Joke;
   onSubmit: Function;
+  isEdit?: boolean;
 };
 
 const JokeForm = (props: Props) => {
-  const { data: joke, onSubmit } = props;
-
-  console.log(joke);
+  const { data: joke, onSubmit, isEdit } = props;
 
   return (
     <Formik
       //enableReinitialize
       initialValues={{
-        Title: joke.Title,
-        Body: joke.Body,
-        Author: joke.Author,
-        Views: joke.Views,
+        Title: isEdit ? joke.Title : '',
+        Body: isEdit ? joke.Body : '',
+        Author: isEdit ? joke.Author : '',
+        Views: isEdit ? joke.Views : '',
+        CreatedAt: isEdit
+          ? moment(joke.CreatedAt).format('YYYY-MM-DDTHH:mm:ss')
+          : moment().format('YYYY-MM-DDTHH:mm:ss'),
       }}
       validationSchema={JokeSchema}
       onSubmit={(values, { setSubmitting }) => {
@@ -57,6 +61,10 @@ const JokeForm = (props: Props) => {
         <div className='JokerForm-field'>
           <span className='JokerForm-label'>Views:</span>
           <Input name='Views' />
+        </div>
+        <div className='JokerForm-field'>
+          <span className='JokerForm-label'>CreatedAt:</span>
+          <DateTimePicker name='CreatedAt' />
         </div>
 
         <Button label='Create' type='submit' />

@@ -9,6 +9,7 @@ const FiltersSchema = () => {
       .typeError('Views must be a number.')
       .min(0, 'Views must be greater than 0.')
       .required('Views is required.'),
+    CreatedAt: Yup.date().required('CreatedAt is required.'),
   });
 };
 

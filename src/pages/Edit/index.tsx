@@ -1,6 +1,7 @@
 //import './_index.scss';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
 
 // Custom components
 import JokesProvider from 'provider/public/jokes';
@@ -12,7 +13,7 @@ type Joke = {
   Body: string;
   Author: string;
   Views: number;
-  //CreatedAt: number;
+  CreatedAt: string | number;
 };
 
 const Edit = () => {
@@ -43,13 +44,18 @@ const Edit = () => {
   };
 
   const onSubmit = (values: Joke) => {
-    patchJoke(values);
+    const { CreatedAt, ...rest } = values;
+    const data = {
+      CreatedAt: parseInt(moment(CreatedAt).format('x')),
+      ...rest,
+    };
+    patchJoke(data);
   };
 
   return (
     <div className='Edit-root'>
       <Header id={id} />
-      {isLoaded && <Body data={data} onSubmit={onSubmit} />}
+      {isLoaded && <Body data={data} onSubmit={onSubmit} isEdit />}
     </div>
   );
 };
