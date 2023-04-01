@@ -1,0 +1,10 @@
+@use 'scss/abstracts/colors';
+
+.ListNavigation-root {
+  background-color: colors.$main;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}

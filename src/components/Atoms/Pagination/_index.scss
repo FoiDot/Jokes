@@ -1,0 +1,48 @@
+@use 'scss/abstracts/colors';
+
+.Pagination-root {
+  display: flex;
+  gap: 5px;
+}
+
+.Pagination-button {
+  border: 2px solid colors.$secondary;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background-color: colors.$main;
+  color: colors.$primary;
+
+  &:disabled {
+    border: 2px solid colors.$disabled;
+    color: colors.$disabled;
+    &:hover {
+      background-color: colors.$main;
+      cursor: default;
+    }
+  }
+  &:hover {
+    background-color: colors.$light;
+    cursor: pointer;
+  }
+  &.Pagination-active {
+    border: 2px solid colors.$highlight;
+    color: colors.$primary;
+    &:hover {
+      background-color: colors.$main;
+      cursor: default;
+    }
+  }
+  &.Pagination-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.Pagination-span {
+  color: colors.$secondary;
+  width: 42px;
+  padding-top: 20px;
+  text-align: center;
+}

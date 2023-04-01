@@ -1,0 +1,12 @@
+@use 'scss/abstracts/colors';
+
+.global-background {
+  min-height: 100%;
+  overflow: hidden;
+  background-color: colors.$dark;
+}
+
+.global-margin {
+  max-width: 1200px;
+  margin: auto;
+}

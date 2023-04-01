@@ -1,0 +1,64 @@
+@use 'scss/abstracts/colors';
+
+.Select-root {
+  position: relative;
+}
+
+.Select-input {
+  border-radius: 5px;
+  height: 42px;
+  min-width: 180px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 5px 5px 14px;
+  border: 2px solid colors.$highlight;
+
+  &:hover {
+    background-color: colors.$light;
+  }
+}
+
+.Select-disable {
+  pointer-events: none;
+}
+
+.Select-icon {
+  color: colors.$highlight;
+  position: absolute;
+  left: 150px;
+  top: 9px;
+}
+
+.Select-menu {
+  z-index: 1;
+  position: absolute;
+  top: 45px;
+  left: 0px;
+  background-color: colors.$dark;
+  padding: 8px 0px;
+  width: 180px;
+  box-shadow: 0px 2px 5px 5px rgb(0 0 0 / 15%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Select-row {
+  padding: 6px 16px;
+  height: 24px;
+  background-color: colors.$main;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: colors.$light;
+  }
+}
+
+.Select-selected {
+  background-color: colors.$light;
+}
+
+.Select-label {
+  color: colors.$primary;
+}

@@ -1,0 +1,38 @@
+@use 'scss/abstracts/colors';
+
+.Table-root {
+  table-layout: fixed;
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
+.Thead-root {
+  //background-color: colors.$light;
+  border-bottom: none;
+}
+
+.Th-root {
+  font-size: 16px;
+  font-weight: 700;
+  height: 40px;
+  text-align: center;
+  width: 200px;
+  color: colors.$primary;
+}
+
+.Tbody-root {
+  border: 1px solid colors.$secondary;
+}
+
+.Td-root {
+  font-size: 16px;
+  height: 40px;
+  text-align: left;
+  width: 200px;
+  border-left: 1px solid colors.$secondary;
+  color: colors.$primary;
+  padding-left: 20px;
+  &:first-child {
+    border-left: none;
+  }
+}

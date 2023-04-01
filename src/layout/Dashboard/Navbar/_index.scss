@@ -1,0 +1,12 @@
+@use 'scss/abstracts/colors';
+
+.Navbar-root {
+  height: 50px;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: colors.$main;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
