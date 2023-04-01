@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 // Custom components
 import JokesProvider from 'provider/public/jokes';
-import Body from 'components/Organism/List/Body';
-import Navigation from 'components/Organism/List/Navigation';
+import Body from 'components/Organisms/List/Body';
+import Navigation from 'components/Organisms/List/Navigation';
 
 type Params = {
   _limit: string;

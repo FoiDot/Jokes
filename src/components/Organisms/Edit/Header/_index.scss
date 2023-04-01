@@ -1,0 +1,12 @@
+@use 'scss/abstracts/colors';
+
+.EditHeader-root {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+
+  .EditHeader-container {
+    width: 200px;
+  }
+}

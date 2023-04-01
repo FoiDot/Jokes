@@ -1,4 +1,5 @@
 import './_index.scss';
+import { Link } from 'react-router-dom';
 
 // Custom components
 import { Table, Thead, Tbody, Th, Td, Tr } from 'components/Atoms/Table';
@@ -56,7 +57,9 @@ const ListBody = (props: Props) => {
             return (
               <Tr key={id}>
                 <Td>
-                  <span>{Title}</span>
+                  <Link to={`/edit/${id}`} className='ListBody-link'>
+                    <span>{Title}</span>
+                  </Link>
                 </Td>
                 <Td border>
                   <span>{toEmail(Author)}</span>

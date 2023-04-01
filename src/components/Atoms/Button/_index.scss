@@ -1,0 +1,22 @@
+@use 'scss/abstracts/colors';
+
+.Button-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 42px;
+  width: 100%;
+  color: colors.$primary;
+  text-transform: none;
+  background-color: colors.$highlight;
+  border: none;
+  position: relative;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background-color: colors.$hover;
+    border: none;
+  }
+}

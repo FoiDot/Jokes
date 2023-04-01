@@ -28,8 +28,8 @@ const ListNavigation = (props: Props) => {
       }}
     >
       <Form className='ListNavigation-root'>
-        <Select name='_limit' options={limitSelector} />
         <Pagination name='_page' />
+        <Select name='_limit' options={limitSelector} />
         <FormikObserver />
       </Form>
     </Formik>

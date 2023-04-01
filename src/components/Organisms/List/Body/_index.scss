@@ -1,0 +1,14 @@
+@use 'scss/abstracts/colors';
+
+.ListBody-root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ListBody-link {
+  color: colors.$primary;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
