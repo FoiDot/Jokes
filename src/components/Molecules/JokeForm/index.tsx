@@ -19,25 +19,22 @@ type Joke = {
 };
 
 type Props = {
-  data: Joke;
   onSubmit: Function;
-  isEdit?: boolean;
+  data?: Joke;
 };
 
 const JokeForm = (props: Props) => {
-  const { data: joke, onSubmit, isEdit } = props;
+  const { data: joke, onSubmit } = props;
 
   return (
     <Formik
       //enableReinitialize
       initialValues={{
-        Title: isEdit ? joke.Title : '',
-        Body: isEdit ? joke.Body : '',
-        Author: isEdit ? joke.Author : '',
-        Views: isEdit ? joke.Views : '',
-        CreatedAt: isEdit
-          ? moment(joke.CreatedAt).format('YYYY-MM-DDTHH:mm:ss')
-          : moment().format('YYYY-MM-DDTHH:mm:ss'),
+        Title: joke ? joke.Title : '',
+        Body: joke ? joke.Body : '',
+        Author: joke ? joke.Author : '',
+        Views: joke ? joke.Views : '',
+        CreatedAt: joke ? moment(joke.CreatedAt).format('YYYY-MM-DDTHH:mm:ss') : moment().format('YYYY-MM-DDTHH:mm:ss'),
       }}
       validationSchema={JokeSchema}
       onSubmit={(values, { setSubmitting }) => {
@@ -67,7 +64,7 @@ const JokeForm = (props: Props) => {
           <DateTimePicker name='CreatedAt' />
         </div>
 
-        <Button label='Create' type='submit' />
+        <Button label={joke ? 'Save' : 'Create'} type='submit' />
       </Form>
     </Formik>
   );

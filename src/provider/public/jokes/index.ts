@@ -10,7 +10,7 @@ type Joke = {
   Body: string;
   Author: string;
   Views: number;
-  //CreatedAt: number;
+  CreatedAt: string | number;
 };
 
 const getJokes = (params: GetJokes) => {
@@ -37,10 +37,20 @@ const patchJoke = (id: string, data: Joke) => {
   return handleCall(call);
 };
 
+const postJoke = (data: Joke) => {
+  const call = {
+    url: '/jokes/',
+    method: 'POST',
+    data,
+  };
+  return handleCall(call);
+};
+
 const CategoriesProvider = {
   getJokes,
   getJoke,
   patchJoke,
+  postJoke,
 };
 
 export default CategoriesProvider;

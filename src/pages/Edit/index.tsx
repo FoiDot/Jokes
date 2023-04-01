@@ -55,7 +55,7 @@ const Edit = () => {
   return (
     <div className='Edit-root'>
       <Header id={id} />
-      {isLoaded && <Body data={data} onSubmit={onSubmit} isEdit />}
+      {isLoaded && <Body data={data} onSubmit={onSubmit} />}
     </div>
   );
 };

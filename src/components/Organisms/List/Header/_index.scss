@@ -1,0 +1,12 @@
+@use 'scss/abstracts/colors';
+
+.ListHeader-root {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  user-select: none;
+
+  .ListHeader-container {
+    width: 200px;
+  }
+}

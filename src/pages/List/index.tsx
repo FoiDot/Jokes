@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 // Custom components
 import JokesProvider from 'provider/public/jokes';
+import Header from 'components/Organisms/List/Header';
 import Body from 'components/Organisms/List/Body';
 import Navigation from 'components/Organisms/List/Navigation';
 
@@ -37,6 +38,7 @@ const List = () => {
 
   return (
     <div className='List-root'>
+      <Header />
       <Body data={data} />
       <Navigation onSubmit={onSubmit} />
     </div>

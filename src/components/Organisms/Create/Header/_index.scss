@@ -1,0 +1,12 @@
+@use 'scss/abstracts/colors';
+
+.CreateHeader-root {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  user-select: none;
+
+  .CreateHeader-container {
+    width: 200px;
+  }
+}

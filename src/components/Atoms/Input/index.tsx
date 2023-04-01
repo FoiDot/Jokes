@@ -11,8 +11,6 @@ const Input = (props: Params) => {
   const [field, meta] = useField(props);
   const error = meta.touched && meta.error;
 
-  console.log(error);
-
   return (
     <>
       <div className='Input-root'>
