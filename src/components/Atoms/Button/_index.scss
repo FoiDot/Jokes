@@ -1,4 +1,4 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .Button-button {
   display: flex;
@@ -7,16 +7,23 @@
   border-radius: 5px;
   height: 42px;
   width: 100%;
-  color: colors.$primary;
   text-transform: none;
-  background-color: colors.$highlight;
   border: none;
   position: relative;
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
+
+  @include themify($themes) {
+    background-color: themed('highlight');
+    color: themed('primary');
+  }
+
   &:hover {
-    background-color: colors.$hover;
     border: none;
+
+    @include themify($themes) {
+      background-color: themed('hover');
+    }
   }
 }

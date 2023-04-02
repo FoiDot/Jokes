@@ -1,9 +1,12 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .global-background {
   min-height: 100%;
   overflow: hidden;
-  background-color: colors.$dark;
+
+  @include themify($themes) {
+    background-color: themed('dark');
+  }
 }
 
 .global-margin {

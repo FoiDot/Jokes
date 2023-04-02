@@ -1,4 +1,4 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .Table-root {
   table-layout: fixed;
@@ -7,7 +7,6 @@
 }
 
 .Thead-root {
-  //background-color: colors.$light;
   border-bottom: none;
 }
 
@@ -17,11 +16,16 @@
   height: 40px;
   text-align: center;
   width: 200px;
-  color: colors.$primary;
+
+  @include themify($themes) {
+    color: themed('primary');
+  }
 }
 
 .Tbody-root {
-  border: 1px solid colors.$secondary;
+  @include themify($themes) {
+    border: 1px solid themed('secondary');
+  }
 }
 
 .Td-root {
@@ -29,9 +33,13 @@
   height: 40px;
   text-align: left;
   width: 200px;
-  border-left: 1px solid colors.$secondary;
-  color: colors.$primary;
   padding-left: 20px;
+
+  @include themify($themes) {
+    border-left: 1px solid themed('secondary');
+    color: themed('primary');
+  }
+
   &:first-child {
     border-left: none;
   }

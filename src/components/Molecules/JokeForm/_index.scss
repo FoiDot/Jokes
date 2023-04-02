@@ -1,4 +1,4 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .JokerForm-root {
   display: flex;
@@ -13,8 +13,11 @@
     gap: 5px;
 
     .JokerForm-label {
-      color: colors.$primary;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed('primary');
+      }
     }
   }
 }

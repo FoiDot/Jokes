@@ -1,0 +1,69 @@
+@import 'scss/theme-variables';
+
+.Switch-btn-section {
+  display: flex;
+  align-items: center;
+
+  .Switch-checkbox {
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    .Switch-btn__input {
+      height: 0;
+      width: 0;
+      //visibility: hidden;
+      display: none;
+    }
+
+    .Switch-btn__input-label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 46px;
+      height: 20px;
+      display: block;
+      border-radius: 23px;
+      position: relative;
+      border: none;
+
+      @include themify($themes) {
+        background-color: themed('secondary');
+      }
+
+      &::after {
+        content: '?';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        transition: 0.3s;
+        box-shadow: 0 5px 10px rgba(153, 153, 153, 0.4);
+        background-color: #fff;
+      }
+    }
+
+    .Switch-btn__input:checked ~ .Switch-btn__input-label {
+      &:after {
+        background: #fff;
+        left: calc(100% - 3px);
+        transform: translateX(-100%);
+      }
+    }
+
+    .Switch-btn__input:checked ~ .Switch-btn__theme {
+      &:after {
+        // theme switch circle background in light theme
+        background: #fff;
+        left: calc(100% - 3px);
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  .Switch-btn__input:checked ~ .Switch-btn__input-label {
+    background-color: #1b75be;
+  }
+}

@@ -1,13 +1,16 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .DateTimePicker-root {
   position: relative;
   height: 28px;
   padding: 5px 14px;
-  border: 2px solid colors.$highlight;
   border-radius: 5px;
-  background-color: colors.$main;
   display: flex;
+  background-color: transparent;
+
+  @include themify($themes) {
+    border: 2px solid themed('highlight');
+  }
 
   .DateTimePicker {
     margin: 0px;
@@ -16,19 +19,27 @@
 
     outline: none;
     border-width: 0px;
-    background-color: colors.$main;
     font-size: 16px;
-    color: colors.$primary;
     padding: 0px 0px 0px 0px;
+    background-color: transparent;
+
+    @include themify($themes) {
+      color: themed('primary');
+    }
 
     &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 50px colors.$main inset;
-      -webkit-text-fill-color: colors.$primary;
+      @include themify($themes) {
+        //-webkit-box-shadow: 0 0 0 50px themed('main') inset;
+        -webkit-text-fill-color: themed('primary');
+      }
     }
   }
 }
 
 .DateTimePicker-error {
-  color: colors.$error;
   font-size: 14px;
+
+  @include themify($themes) {
+    color: themed('error');
+  }
 }

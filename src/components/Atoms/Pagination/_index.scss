@@ -1,4 +1,4 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .Pagination-root {
   display: flex;
@@ -6,31 +6,49 @@
 }
 
 .Pagination-button {
-  border: 2px solid colors.$secondary;
   width: 42px;
   height: 42px;
   border-radius: 4px;
-  background-color: colors.$main;
-  color: colors.$primary;
+
+  @include themify($themes) {
+    color: themed('primary');
+    background-color: themed('main');
+    border: 2px solid themed('secondary');
+  }
 
   &:disabled {
-    border: 2px solid colors.$disabled;
-    color: colors.$disabled;
+    @include themify($themes) {
+      color: themed('disabled');
+      border: 2px solid themed('disabled');
+    }
+
     &:hover {
-      background-color: colors.$main;
       cursor: default;
+
+      @include themify($themes) {
+        background-color: themed('main');
+      }
     }
   }
   &:hover {
-    background-color: colors.$light;
     cursor: pointer;
+
+    @include themify($themes) {
+      background-color: themed('light');
+    }
   }
   &.Pagination-active {
-    border: 2px solid colors.$highlight;
-    color: colors.$primary;
+    @include themify($themes) {
+      color: themed('primary');
+      border: 2px solid themed('highlight');
+    }
+
     &:hover {
-      background-color: colors.$main;
       cursor: default;
+
+      @include themify($themes) {
+        background-color: themed('main');
+      }
     }
   }
   &.Pagination-icon {
@@ -41,8 +59,11 @@
 }
 
 .Pagination-span {
-  color: colors.$secondary;
   width: 42px;
   padding-top: 20px;
   text-align: center;
+
+  @include themify($themes) {
+    color: themed('secondary');
+  }
 }

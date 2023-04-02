@@ -1,4 +1,4 @@
-@use 'scss/abstracts/colors';
+@import 'scss/theme-variables';
 
 .Select-root {
   position: relative;
@@ -13,10 +13,16 @@
   align-items: center;
   cursor: pointer;
   padding: 5px 5px 5px 14px;
-  border: 2px solid colors.$highlight;
+
+  @include themify($themes) {
+    border: 2px solid themed('highlight');
+    background-color: themed('main');
+  }
 
   &:hover {
-    background-color: colors.$light;
+    @include themify($themes) {
+      background-color: themed('light');
+    }
   }
 }
 
@@ -25,10 +31,13 @@
 }
 
 .Select-icon {
-  color: colors.$highlight;
   position: absolute;
   left: 150px;
   top: 9px;
+
+  @include themify($themes) {
+    color: themed('highlight');
+  }
 }
 
 .Select-menu {
@@ -36,29 +45,42 @@
   position: absolute;
   top: 45px;
   left: 0px;
-  background-color: colors.$dark;
   padding: 8px 0px;
   width: 180px;
   box-shadow: 0px 2px 5px 5px rgb(0 0 0 / 15%);
   border-radius: 5px;
   cursor: pointer;
+
+  @include themify($themes) {
+    background-color: themed('dark');
+  }
 }
 
 .Select-row {
   padding: 6px 16px;
   height: 24px;
-  background-color: colors.$main;
   display: flex;
   align-items: center;
+
+  @include themify($themes) {
+    background-color: themed('main');
+  }
+
   &:hover {
-    background-color: colors.$light;
+    @include themify($themes) {
+      background-color: themed('light');
+    }
   }
 }
 
 .Select-selected {
-  background-color: colors.$light;
+  @include themify($themes) {
+    background-color: themed('light');
+  }
 }
 
 .Select-label {
-  color: colors.$primary;
+  @include themify($themes) {
+    color: themed('primary');
+  }
 }
