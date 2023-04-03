@@ -5,7 +5,7 @@ import moment from 'moment';
 
 // Custom components
 import Header from 'components/Organisms/Create/Header';
-import Body from 'components/Molecules/JokeForm';
+import Body from 'components/Molecules/Formik/JokeForm';
 import JokesProvider from 'provider/public/jokes';
 
 type Joke = {

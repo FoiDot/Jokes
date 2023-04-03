@@ -4,17 +4,19 @@ import './_index.scss';
 import Button from 'components/Atoms/Button';
 
 type Props = {
-  id: string;
+  handleDelete: Function;
 };
 
 const EditHeader = (props: Props) => {
+  const { handleDelete } = props;
+
   return (
     <div className='EditHeader-root'>
       <div className='EditHeader-container'>
         <Button label='Back' to='/' />
       </div>
       <div className='EditHeader-container'>
-        <Button label='Delete' color='delete' />
+        <Button label='Delete' color='delete' onClick={handleDelete} />
       </div>
     </div>
   );

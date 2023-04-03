@@ -46,11 +46,20 @@ const postJoke = (data: Joke) => {
   return handleCall(call);
 };
 
+const deleteJoke = (id: string) => {
+  const call = {
+    url: `/jokes/${id}`,
+    method: 'DELETE',
+  };
+  return handleCall(call);
+};
+
 const JokeProvider = {
   getJokes,
   getJoke,
   patchJoke,
   postJoke,
+  deleteJoke,
 };
 
 export default JokeProvider;

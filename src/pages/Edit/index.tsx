@@ -1,12 +1,14 @@
-//import './_index.scss';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
 
 // Custom components
 import JokesProvider from 'provider/public/jokes';
-import Body from 'components/Molecules/JokeForm';
+import Body from 'components/Molecules/Formik/JokeForm';
 import Header from 'components/Organisms/Edit/Header';
+import CircularLoader from 'components/Atoms/CircularLoader';
+import ErrorTemplate from 'components/Molecules/ErrorTemplate';
+import { set, check } from 'utils/componentStatus';
 
 type Joke = {
   Title: string;
@@ -18,7 +20,7 @@ type Joke = {
 
 const Edit = () => {
   const [data, setData] = useState<any>({});
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [status, setStatus] = useState(set.LOADING);
 
   const { id = '' } = useParams();
 
@@ -30,9 +32,11 @@ const Edit = () => {
     JokesProvider.getJoke(id)
       .then((response: any) => {
         setData(response);
-        setIsLoaded(true);
+        setStatus(set.OK);
       })
-      .catch((error: any) => console.error(error));
+      .catch((error: any) => {
+        setStatus(set.ERROR);
+      });
   };
 
   const patchJoke = (values: Joke) => {
@@ -40,6 +44,12 @@ const Edit = () => {
       .then((response: any) => {
         console.log(response);
       })
+      .catch((error: any) => console.error(error));
+  };
+
+  const deleteJoke = (id: string) => {
+    JokesProvider.deleteJoke(id)
+      .then((response: any) => setStatus(set.EMPTY))
       .catch((error: any) => console.error(error));
   };
 
@@ -52,10 +62,15 @@ const Edit = () => {
     patchJoke(data);
   };
 
+  const handleDelete = () => deleteJoke(id);
+
   return (
-    <div className='Edit-root'>
-      <Header id={id} />
-      {isLoaded && <Body data={data} onSubmit={onSubmit} />}
+    <div>
+      <Header handleDelete={handleDelete} />
+      {check.loading(status) && <CircularLoader />}
+      {check.ok(status) && <Body data={data} onSubmit={onSubmit} />}
+      {check.empty(status) && <ErrorTemplate message='Oops! This joke was deleted!' />}
+      {check.error(status) && <ErrorTemplate message='Oops! This joke do not exist!' />}
     </div>
   );
 };

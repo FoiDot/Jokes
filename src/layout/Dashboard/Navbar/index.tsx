@@ -7,7 +7,7 @@ import Switch from 'components/Atoms/Switch';
 import Icon from 'components/Atoms/Icon';
 import Modal from 'components/Atoms/Modal';
 import Button from 'components/Atoms/Button';
-import LoginForm from 'components/Molecules/LoginForm';
+import LoginForm from 'components/Molecules/Formik/LoginForm';
 import LoginProvider from 'provider/private/login';
 import { ThemeContext } from 'context/themeContext';
 import { SessionContext } from 'context/sessionContext';

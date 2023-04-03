@@ -1,0 +1,28 @@
+@import 'scss/theme-variables';
+
+.ErrorTemplate-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-height: 300px;
+
+  .ErrorTemplate-message {
+    font-size: 20px;
+    font-weight: 700;
+
+    @include themify($themes) {
+      color: themed('primary');
+    }
+  }
+
+  .ErrorTemplate-icon {
+    width: 100px;
+    height: 100px;
+
+    @include themify($themes) {
+      color: themed('primary');
+    }
+  }
+}
