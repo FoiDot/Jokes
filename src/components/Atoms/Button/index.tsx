@@ -1,5 +1,4 @@
 import './_index.scss';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -7,10 +6,11 @@ type Props = {
   onClick?: Function;
   type?: string;
   to?: string;
+  color?: string;
 };
 
 const Button = (props: Props) => {
-  const { label, type, onClick, to } = props;
+  const { label, type, onClick, to, color } = props;
   const isSubmit = type === 'submit';
 
   if (to) {
@@ -22,20 +22,14 @@ const Button = (props: Props) => {
   }
 
   return (
-    <button className='Button-button' type={isSubmit ? 'submit' : 'button'} onClick={(e: any) => onClick && onClick()}>
+    <button
+      className={`Button-button ${color}`}
+      type={isSubmit ? 'submit' : 'button'}
+      onClick={(e: any) => onClick && onClick()}
+    >
       {label}
     </button>
   );
-};
-
-Button.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-};
-
-Button.defaultProps = {
-  label: '',
-  type: 'button',
 };
 
 export default Button;

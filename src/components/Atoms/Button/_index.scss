@@ -26,4 +26,22 @@
       background-color: themed('hover');
     }
   }
+
+  &.delete {
+    background-color: tomato;
+
+    &:hover {
+      border: none;
+      background-color: #f55b40;
+    }
+  }
+
+  &.success {
+    background-color: #5ccd7c;
+
+    &:hover {
+      border: none;
+      background-color: #4abc6d;
+    }
+  }
 }

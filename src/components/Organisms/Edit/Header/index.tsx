@@ -14,7 +14,7 @@ const EditHeader = (props: Props) => {
         <Button label='Back' to='/' />
       </div>
       <div className='EditHeader-container'>
-        <Button label='Delete' />
+        <Button label='Delete' color='delete' />
       </div>
     </div>
   );

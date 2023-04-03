@@ -64,7 +64,7 @@ const JokeForm = (props: Props) => {
           <DateTimePicker name='CreatedAt' />
         </div>
 
-        <Button label={joke ? 'Save' : 'Create'} type='submit' />
+        <Button label={joke ? 'Save' : 'Create'} type='submit' color='success' />
       </Form>
     </Formik>
   );
