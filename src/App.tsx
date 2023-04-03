@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Router from 'routes';
 import MainStyle from 'layout/MainStyle';
 import ScrollToTop from 'utils/components/ScrollToTop';
-import { ThemeContext } from 'context/theme-context';
+import { ThemeContext } from 'context/themeContext';
 
 const App = () => {
   const isBrowserDefaulDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;

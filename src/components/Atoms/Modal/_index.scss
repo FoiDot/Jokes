@@ -1,0 +1,41 @@
+@import 'scss/theme-variables';
+
+.Modal-root {
+  position: absolute;
+  z-index: 1010;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+
+  .Modal-container {
+    border-radius: 5px;
+    padding: 20px;
+
+    @include themify($themes) {
+      background-color: themed('main');
+    }
+
+    .Modal-header {
+      margin-bottom: 20px;
+
+      .Modal-closeIcon {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .Modal-title {
+        font-weight: 700;
+        font-size: 18px;
+
+        @include themify($themes) {
+          color: themed('primary');
+        }
+      }
+    }
+  }
+}

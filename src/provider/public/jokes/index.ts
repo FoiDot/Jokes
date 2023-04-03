@@ -46,11 +46,11 @@ const postJoke = (data: Joke) => {
   return handleCall(call);
 };
 
-const CategoriesProvider = {
+const JokeProvider = {
   getJokes,
   getJoke,
   patchJoke,
   postJoke,
 };
 
-export default CategoriesProvider;
+export default JokeProvider;

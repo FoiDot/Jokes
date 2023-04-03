@@ -1,0 +1,25 @@
+@use 'scss/abstracts/colors';
+
+.IconButton-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.IconButton-icon {
+  padding: 8px;
+  border-radius: 50%;
+  color: colors.$highlight;
+  &:hover {
+    background-color: colors.$light;
+  }
+}

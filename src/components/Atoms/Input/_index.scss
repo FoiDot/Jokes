@@ -29,7 +29,7 @@
 
     &:-webkit-autofill {
       @include themify($themes) {
-        //-webkit-box-shadow: 0 0 0 50px themed('main') inset;
+        -webkit-box-shadow: 0 0 0 50px rgba(transparent, 0) inset;
         -webkit-text-fill-color: themed('primary');
       }
     }

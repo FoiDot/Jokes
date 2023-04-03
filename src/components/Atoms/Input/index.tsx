@@ -14,7 +14,7 @@ const Input = (props: Params) => {
   return (
     <>
       <div className='Input-root'>
-        <input id={name} className='Input' autoComplete='off' {...field} {...rest} />
+        <input id={name} className='Input' {...field} {...rest} autoComplete='off' />
       </div>
       {error && <span className='Input-error'>{error}</span>}
     </>

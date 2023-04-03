@@ -1,0 +1,47 @@
+@import 'scss/theme-variables';
+
+.LoginForm-root {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .LoginForm-forgot-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .LoginForm-forgot {
+      @include themify($themes) {
+        color: themed('primary');
+      }
+    }
+  }
+
+  .LoginForm-hint-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 5px;
+
+    @include themify($themes) {
+      background-color: themed('dark');
+    }
+
+    .LoginForm-hint-title {
+      font-size: 14px;
+      font-weight: 700;
+
+      @include themify($themes) {
+        color: themed('primary');
+      }
+    }
+    .LoginForm-hint {
+      font-size: 14px;
+
+      @include themify($themes) {
+        color: themed('primary');
+      }
+    }
+  }
+}
