@@ -12,7 +12,11 @@ const Span = styled.span`
 const Label = (props: Props) => {
   const { color, text } = props;
 
-  return <Span color={color}>{text}</Span>;
+  return (
+    <Span className='ViewLabel-root' color={color}>
+      {text}
+    </Span>
+  );
 };
 
 export default Label;

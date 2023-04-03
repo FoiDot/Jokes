@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // Custom components
 import { Table, Thead, Tbody, Th, Td, Tr } from 'components/Atoms/Table';
 import Span from 'components/Atoms/ViewLabel';
-import ErrorTemplate from 'components/Molecules/ErrorTemplate';
 import { toDate, toEmail } from 'utils/formating';
 
 type Joke = {
@@ -32,55 +31,49 @@ const ListBody = (props: Props) => {
   };
 
   return (
-    <div className='ListBody-root'>
-      {jokes.length ? (
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>
-                <span>Title</span>
-              </Th>
-              <Th border>
-                <span>Author</span>
-              </Th>
-              <Th border>
-                <span>Created Date</span>
-              </Th>
-              <Th border>
-                <span>Views</span>
-              </Th>
+    <Table>
+      <Thead>
+        <Tr>
+          <Th>
+            <span>Title</span>
+          </Th>
+          <Th border>
+            <span>Author</span>
+          </Th>
+          <Th border>
+            <span>Created Date</span>
+          </Th>
+          <Th border>
+            <span>Views</span>
+          </Th>
+        </Tr>
+      </Thead>
+
+      <Tbody>
+        {jokes.map((joke: Joke) => {
+          const { id, Title, Author, CreatedAt, Views } = joke;
+
+          return (
+            <Tr key={id}>
+              <Td>
+                <Link to={`/edit/${id}`} className='ListBody-link'>
+                  <span>{Title}</span>
+                </Link>
+              </Td>
+              <Td border>
+                <span>{toEmail(Author)}</span>
+              </Td>
+              <Td border>
+                <span>{toDate(CreatedAt)}</span>
+              </Td>
+              <Td border>
+                <Span color={getViewColor(Views)} text={Views} />
+              </Td>
             </Tr>
-          </Thead>
-
-          <Tbody>
-            {jokes.map((joke: Joke) => {
-              const { id, Title, Author, CreatedAt, Views } = joke;
-
-              return (
-                <Tr key={id}>
-                  <Td>
-                    <Link to={`/edit/${id}`} className='ListBody-link'>
-                      <span>{Title}</span>
-                    </Link>
-                  </Td>
-                  <Td border>
-                    <span>{toEmail(Author)}</span>
-                  </Td>
-                  <Td border>
-                    <span>{toDate(CreatedAt)}</span>
-                  </Td>
-                  <Td border>
-                    <Span color={getViewColor(Views)} text={Views} />
-                  </Td>
-                </Tr>
-              );
-            })}
-          </Tbody>
-        </Table>
-      ) : (
-        <ErrorTemplate message='Oops! End of the Joke list!' />
-      )}
-    </div>
+          );
+        })}
+      </Tbody>
+    </Table>
   );
 };
 

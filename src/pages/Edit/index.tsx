@@ -1,3 +1,4 @@
+import './_index.scss';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
@@ -67,7 +68,11 @@ const Edit = () => {
   return (
     <div>
       <Header handleDelete={handleDelete} />
-      {check.loading(status) && <CircularLoader />}
+      {check.loading(status) && (
+        <div className='Edit-root'>
+          <CircularLoader />
+        </div>
+      )}
       {check.ok(status) && <Body data={data} onSubmit={onSubmit} />}
       {check.empty(status) && <ErrorTemplate message='Oops! This joke was deleted!' />}
       {check.error(status) && <ErrorTemplate message='Oops! This joke do not exist!' />}
