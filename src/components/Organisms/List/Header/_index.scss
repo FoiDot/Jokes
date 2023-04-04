@@ -1,3 +1,5 @@
+@import 'scss/abstracts/mixins';
+
 .ListHeader-root {
   padding: 20px;
   display: flex;
@@ -6,5 +8,9 @@
 
   .ListHeader-container {
     width: 200px;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 }

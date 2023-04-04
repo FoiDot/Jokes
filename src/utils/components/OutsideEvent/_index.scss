@@ -1,0 +1,7 @@
+@import 'scss/abstracts/mixins';
+
+.OutsideEvent-root {
+  @include mobile {
+    width: 100%;
+  }
+}

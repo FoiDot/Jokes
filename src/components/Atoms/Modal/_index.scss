@@ -1,4 +1,5 @@
 @import 'scss/theme-variables';
+@import 'scss/abstracts/mixins';
 
 .Modal-root {
   position: absolute;
@@ -14,6 +15,10 @@
   .Modal-container {
     border-radius: 5px;
     padding: 20px;
+
+    @include mobile {
+      margin: 0px 20px;
+    }
 
     @include themify($themes) {
       background-color: themed('main');

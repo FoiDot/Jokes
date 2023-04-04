@@ -1,3 +1,4 @@
+import './_index.scss';
 import React, { useRef, useEffect, RefObject } from 'react';
 
 type Props = {
@@ -22,7 +23,11 @@ const OutsideEvent = (props: Props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   useOutsideEvent(wrapperRef, onEvent);
 
-  return <div ref={wrapperRef}>{children}</div>;
+  return (
+    <div ref={wrapperRef} className='OutsideEvent-root'>
+      {children}
+    </div>
+  );
 };
 
 export default OutsideEvent;

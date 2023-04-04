@@ -1,4 +1,5 @@
 @import 'scss/theme-variables';
+@import 'scss/abstracts/mixins';
 
 .List-root {
   display: flex;
@@ -12,8 +13,40 @@
     padding: 20px 0px;
     border-radius: 5px;
 
+    @include desktop {
+      margin: 0px 20px;
+    }
+
+    @include tablet {
+      overflow-x: scroll;
+    }
+
     @include themify($themes) {
       background-color: themed('main');
+    }
+  }
+
+  .List-instruction-container {
+    display: none;
+    padding: 10px 0px 0px 20px;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+
+    .List-instruction-icon {
+      margin-right: 5xp;
+
+      @include themify($themes) {
+        color: themed('primary');
+      }
+    }
+
+    .List-instruction-message {
+      @include themify($themes) {
+        color: themed('primary');
+      }
     }
   }
 }

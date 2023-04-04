@@ -1,10 +1,20 @@
+@import 'scss/abstracts/mixins';
+
 .CreateHeader-root {
   padding: 20px;
   display: flex;
   justify-content: flex-start;
   user-select: none;
 
+  @include mobile {
+    justify-content: center;
+  }
+
   .CreateHeader-container {
     width: 200px;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 }

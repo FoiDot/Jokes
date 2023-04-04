@@ -8,6 +8,7 @@ import Body from 'components/Organisms/List/Body';
 import Navigation from 'components/Organisms/List/Navigation';
 import ErrorTemplate from 'components/Molecules/ErrorTemplate';
 import CircularLoader from 'components/Atoms/CircularLoader';
+import Icon from 'components/Atoms/Icon';
 import { set, check } from 'utils/componentStatus';
 
 type Params = {
@@ -45,10 +46,18 @@ const List = () => {
   return (
     <div className='List-root'>
       <Header />
-      <div className='List-body'>
-        {check.ok(status) && <Body data={data} />}
-        {check.loading(status) && <CircularLoader />}
-        {check.empty(status) && <ErrorTemplate message='Oops! End of the Joke list!' />}
+      <div>
+        <div className='List-body'>
+          {check.ok(status) && <Body data={data} />}
+          {check.loading(status) && <CircularLoader />}
+          {check.empty(status) && <ErrorTemplate message='Oops! End of the Joke list!' />}
+        </div>
+        {check.ok(status) && (
+          <div className='List-instruction-container'>
+            <Icon iconName='PanToolAltOutlined' className='List-instruction-icon' />
+            <span className='List-instruction-message'>Slice to left see more...</span>
+          </div>
+        )}
       </div>
       <Navigation onSubmit={onSubmit} />
     </div>
