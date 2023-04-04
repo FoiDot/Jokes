@@ -7,6 +7,7 @@ import DashboardLayout from 'layout/Dashboard';
 import List from 'pages/List';
 import Edit from 'pages/Edit';
 import Create from 'pages/Create';
+import Error from 'pages/Error';
 
 const Router: React.FC = (): JSX.Element => {
   const routes = useRoutes([
@@ -20,7 +21,7 @@ const Router: React.FC = (): JSX.Element => {
         { path: 'create', element: <Create /> },
       ],
     },
-    { path: '*', element: <h1>Bad</h1> },
+    { path: '*', element: <Error /> },
   ]);
 
   return <>{routes}</>;
