@@ -5,10 +5,11 @@ import Button from 'components/Atoms/Button';
 
 type Props = {
   handleDelete: Function;
+  hideDelete: boolean;
 };
 
 const EditHeader = (props: Props) => {
-  const { handleDelete } = props;
+  const { handleDelete, hideDelete } = props;
 
   return (
     <div className='EditHeader-root'>
@@ -16,7 +17,7 @@ const EditHeader = (props: Props) => {
         <Button label='Back' to='/' />
       </div>
       <div className='EditHeader-container'>
-        <Button label='Delete' color='delete' onClick={handleDelete} />
+        {!hideDelete && <Button label='Delete' color='delete' onClick={handleDelete} />}
       </div>
     </div>
   );

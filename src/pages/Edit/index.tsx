@@ -67,7 +67,7 @@ const Edit = () => {
 
   return (
     <div>
-      <Header handleDelete={handleDelete} />
+      <Header handleDelete={handleDelete} hideDelete={check.empty(status) || check.error(status)} />
       {check.loading(status) && (
         <div className='Edit-root'>
           <CircularLoader />
