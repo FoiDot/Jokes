@@ -7,7 +7,7 @@ import moment from 'moment';
 import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
 import DateTimePicker from 'components/Atoms/DateTimePicker';
-import JokeSchema from 'schemas/jokerShema';
+import JokeSchema from 'schemas/jokeShema';
 
 type Joke = {
   id: number;
@@ -28,7 +28,6 @@ const JokeForm = (props: Props) => {
 
   return (
     <Formik
-      //enableReinitialize
       initialValues={{
         Title: joke ? joke.Title : '',
         Body: joke ? joke.Body : '',
@@ -42,30 +41,32 @@ const JokeForm = (props: Props) => {
         setSubmitting(false);
       }}
     >
-      <Form className='JokerForm-root'>
-        <div className='JokerForm-field'>
-          <span className='JokerForm-label'>Title:</span>
-          <Input name='Title' />
-        </div>
-        <div className='JokerForm-field'>
-          <span className='JokerForm-label'>Body:</span>
-          <Input name='Body' />
-        </div>
-        <div className='JokerForm-field'>
-          <span className='JokerForm-label'>Author:</span>
-          <Input name='Author' />
-        </div>
-        <div className='JokerForm-field'>
-          <span className='JokerForm-label'>Views:</span>
-          <Input name='Views' />
-        </div>
-        <div className='JokerForm-field'>
-          <span className='JokerForm-label'>CreatedAt:</span>
-          <DateTimePicker name='CreatedAt' />
-        </div>
+      {({ isValid, dirty }) => (
+        <Form className='JokerForm-root'>
+          <div className='JokerForm-field'>
+            <span className='JokerForm-label'>Title:</span>
+            <Input name='Title' />
+          </div>
+          <div className='JokerForm-field'>
+            <span className='JokerForm-label'>Body:</span>
+            <Input name='Body' />
+          </div>
+          <div className='JokerForm-field'>
+            <span className='JokerForm-label'>Author:</span>
+            <Input name='Author' />
+          </div>
+          <div className='JokerForm-field'>
+            <span className='JokerForm-label'>Views:</span>
+            <Input name='Views' />
+          </div>
+          <div className='JokerForm-field'>
+            <span className='JokerForm-label'>CreatedAt:</span>
+            <DateTimePicker name='CreatedAt' />
+          </div>
 
-        <Button label={joke ? 'Save' : 'Create'} type='submit' color='success' />
-      </Form>
+          <Button label={joke ? 'Save' : 'Create'} type='submit' color='success' disabled={!(dirty && isValid)} />
+        </Form>
+      )}
     </Formik>
   );
 };

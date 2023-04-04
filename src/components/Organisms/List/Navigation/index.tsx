@@ -21,7 +21,6 @@ const ListNavigation = (props: Props) => {
         _page: 1,
         _limit: '5',
       }}
-      //validationSchema={NavigationSchema(limitSelector)}
       onSubmit={(values, { setSubmitting }) => {
         onSubmit(values);
         setSubmitting(false);

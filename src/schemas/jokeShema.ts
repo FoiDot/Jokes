@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const FiltersSchema = () => {
+const JokeSchema = () => {
   return Yup.object({
     Title: Yup.string().required('Title is required.'),
     Body: Yup.string().required('Body is required.'),
@@ -13,4 +13,4 @@ const FiltersSchema = () => {
   });
 };
 
-export default FiltersSchema;
+export default JokeSchema;

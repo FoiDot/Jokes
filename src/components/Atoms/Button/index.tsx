@@ -7,10 +7,11 @@ type Props = {
   type?: string;
   to?: string;
   color?: string;
+  disabled?: boolean;
 };
 
 const Button = (props: Props) => {
-  const { label, type, onClick, to, color } = props;
+  const { label, type, onClick, to, color, disabled } = props;
   const isSubmit = type === 'submit';
 
   if (to) {
@@ -26,6 +27,7 @@ const Button = (props: Props) => {
       className={`Button-button ${color}`}
       type={isSubmit ? 'submit' : 'button'}
       onClick={(e: any) => onClick && onClick()}
+      disabled={!!disabled}
     >
       {label}
     </button>

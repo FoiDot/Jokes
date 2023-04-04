@@ -27,12 +27,34 @@
     }
   }
 
+  &:disabled {
+    @include themify($themes) {
+      color: themed('primary');
+      background-color: themed('highlight');
+    }
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
   &.delete {
     background-color: tomato;
 
     &:hover {
       border: none;
       background-color: #f55b40;
+    }
+
+    &:disabled {
+      background-color: 'tomato';
+      @include themify($themes) {
+        color: themed('primary');
+      }
+
+      &:hover {
+        cursor: default;
+      }
     }
   }
 
@@ -42,6 +64,18 @@
     &:hover {
       border: none;
       background-color: #4abc6d;
+    }
+
+    &:disabled {
+      background-color: #5ccd7c;
+
+      @include themify($themes) {
+        color: themed('primary');
+      }
+
+      &:hover {
+        cursor: default;
+      }
     }
   }
 }

@@ -44,4 +44,12 @@
       }
     }
   }
+
+  .LoginForm-error {
+    font-size: 14px;
+
+    @include themify($themes) {
+      color: themed('error');
+    }
+  }
 }
