@@ -1,5 +1,4 @@
 import './_index.scss';
-import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import moment from 'moment';
 
@@ -28,6 +27,8 @@ const JokeForm = (props: Props) => {
 
   return (
     <Formik
+      enableReinitialize
+      validateOnMount
       initialValues={{
         Title: joke ? joke.Title : '',
         Body: joke ? joke.Body : '',
@@ -41,7 +42,7 @@ const JokeForm = (props: Props) => {
         setSubmitting(false);
       }}
     >
-      {({ isValid, dirty }) => (
+      {({ isValid }) => (
         <Form className='JokerForm-root'>
           <div className='JokerForm-field'>
             <span className='JokerForm-label'>Title:</span>
@@ -64,7 +65,7 @@ const JokeForm = (props: Props) => {
             <DateTimePicker name='CreatedAt' />
           </div>
 
-          <Button label={joke ? 'Save' : 'Create'} type='submit' color='success' disabled={!(dirty && isValid)} />
+          <Button label={joke ? 'Save' : 'Create'} type='submit' color='success' disabled={!isValid} />
         </Form>
       )}
     </Formik>

@@ -1,0 +1,33 @@
+@import 'scss/theme-variables';
+
+.Snackbar-root {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 20px;
+  border-radius: 5px;
+  width: 200px;
+
+  &.success {
+    background-color: #5ccd7c;
+  }
+
+  &.error {
+    @include themify($themes) {
+      background-color: themed('error');
+    }
+  }
+
+  .Snackbar-message {
+    font-weight: 700;
+    font-size: 14px;
+
+    @include themify($themes) {
+      color: themed('primary');
+    }
+  }
+}

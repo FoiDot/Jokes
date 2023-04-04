@@ -8,6 +8,7 @@ import JokesProvider from 'provider/public/jokes';
 import Body from 'components/Molecules/Formik/JokeForm';
 import Header from 'components/Organisms/Edit/Header';
 import CircularLoader from 'components/Atoms/CircularLoader';
+import Snackbar from 'components/Atoms/Snackbar';
 import ErrorTemplate from 'components/Molecules/ErrorTemplate';
 import { set, check } from 'utils/componentStatus';
 
@@ -19,9 +20,28 @@ type Joke = {
   CreatedAt: string | number;
 };
 
+type Snack = {
+  message: string;
+  open: boolean;
+  type: string;
+};
+
+const snackSuccess = {
+  open: true,
+  type: 'Success',
+  message: 'Joke was saved!',
+};
+
+const snackError = {
+  open: true,
+  type: 'Error',
+  message: 'Joke was deleted!',
+};
+
 const Edit = () => {
   const [data, setData] = useState<any>({});
   const [status, setStatus] = useState(set.LOADING);
+  const [snack, setSnack] = useState<Snack>({ open: false, type: '', message: '' });
 
   const { id = '' } = useParams();
 
@@ -42,15 +62,16 @@ const Edit = () => {
 
   const patchJoke = (values: Joke) => {
     JokesProvider.patchJoke(id, values)
-      .then((response: any) => {
-        console.log(response);
-      })
+      .then((response: any) => setSnack(snackSuccess))
       .catch((error: any) => console.error(error));
   };
 
   const deleteJoke = (id: string) => {
     JokesProvider.deleteJoke(id)
-      .then((response: any) => setStatus(set.EMPTY))
+      .then((response: any) => {
+        setStatus(set.EMPTY);
+        setSnack(snackError);
+      })
       .catch((error: any) => console.error(error));
   };
 
@@ -64,6 +85,7 @@ const Edit = () => {
   };
 
   const handleDelete = () => deleteJoke(id);
+  const handleClose = () => setSnack({ ...snack, open: false });
 
   return (
     <div>
@@ -76,6 +98,7 @@ const Edit = () => {
       {check.ok(status) && <Body data={data} onSubmit={onSubmit} />}
       {check.empty(status) && <ErrorTemplate message='Oops! This joke was deleted!' />}
       {check.error(status) && <ErrorTemplate message='Oops! This joke do not exist!' />}
+      <Snackbar message={snack.message} type={snack.type} open={snack.open} handleClose={handleClose} />
     </div>
   );
 };

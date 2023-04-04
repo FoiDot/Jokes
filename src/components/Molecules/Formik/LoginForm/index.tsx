@@ -38,6 +38,7 @@ const LoginForm = () => {
   return (
     <Formik
       enableReinitialize
+      validateOnMount
       initialValues={{
         email: '',
         password: '',
@@ -48,7 +49,7 @@ const LoginForm = () => {
         setSubmitting(false);
       }}
     >
-      {({ isValid, dirty }) => (
+      {({ isValid }) => (
         <Form className='LoginForm-root'>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <Input name='email' />
@@ -67,7 +68,7 @@ const LoginForm = () => {
               </div>
             )}
           </div>
-          <Button label='Login' type='submit' disabled={!(dirty && isValid)} />
+          <Button label='Login' type='submit' disabled={!isValid} />
         </Form>
       )}
     </Formik>
