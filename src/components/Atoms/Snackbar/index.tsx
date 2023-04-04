@@ -23,15 +23,9 @@ const Snackbar = (props: Props) => {
     }
   };
 
-  const handleIcon = () => {
-    return 'CloseOutlined';
-  };
-
   useEffect(() => {
-    if (open) handleTimer();
-  }, [open]);
-
-  const handleTimer = () => setTimeout(() => handleClose(), 5000);
+    if (open) setTimeout(() => handleClose(), 5000);
+  }, [open, handleClose]);
 
   return (
     <>

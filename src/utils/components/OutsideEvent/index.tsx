@@ -15,7 +15,7 @@ const useOutsideEvent = (ref: RefObject<HTMLDivElement>, onEvent: Function) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, onEvent]);
 };
 
 const OutsideEvent = (props: Props) => {

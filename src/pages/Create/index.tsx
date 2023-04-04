@@ -1,6 +1,4 @@
-//import './_index.scss';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import moment from 'moment';
 
 // Custom components
