@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Custom components
 import { Table, Thead, Tbody, Th, Td, Tr } from 'components/Atoms/Table';
-import Span from 'components/Atoms/ViewLabel';
+import ViewLabel from 'components/Atoms/ViewLabel';
 import { toDate, toEmail } from 'utils/formating';
 
 type Joke = {
@@ -27,7 +27,7 @@ const ListBody = (props: Props) => {
     else if (views <= 50) return 'orange';
     else if (views <= 75) return 'yellow';
     else if (views <= 100) return 'green';
-    return 'white';
+    return '';
   };
 
   return (
@@ -67,7 +67,7 @@ const ListBody = (props: Props) => {
                 <span>{toDate(CreatedAt)}</span>
               </Td>
               <Td border>
-                <Span color={getViewColor(Views)} text={Views} />
+                <ViewLabel color={getViewColor(Views)} text={Views} />
               </Td>
             </Tr>
           );

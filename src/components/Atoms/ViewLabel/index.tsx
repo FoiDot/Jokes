@@ -9,14 +9,10 @@ const Span = styled.span`
   color: ${(props: Props) => props.color};
 `;
 
-const Label = (props: Props) => {
+const ViewLabel = (props: Props) => {
   const { color, text } = props;
 
-  return (
-    <Span className='ViewLabel-root' color={color}>
-      {text}
-    </Span>
-  );
+  return <Span color={color}>{text}</Span>;
 };
 
-export default Label;
+export default ViewLabel;
