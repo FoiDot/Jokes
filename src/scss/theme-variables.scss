@@ -1,35 +1,57 @@
+@use 'scss/abstracts/colors';
+
 $themes: (
   light: (
     //Main Components
-    light: #608fb7,
-    main: #57a0ea,
-    dark: #fff,
+    light: colors.$light-blue,
+    main: colors.$main-blue,
+    dark: colors.$white-font,
 
-    //Interaction Components
-    highlight: #1b75be,
-    hover: #007cc8cc,
-    disabled: #515a64,
+    //Button
+    highlight: colors.$dark-blue,
+    hover: colors.$highlight,
+    disabled: colors.$disabled,
+
+    //Pagination
+    pagination-main: colors.$white-font,
+    pagination-hover: colors.$highlight,
+    pagination-disabled: colors.$disabled,
+
+    //Select
+    select-main: colors.$white-font,
+    select-hover: colors.$highlight,
+    select-disabled: colors.$disabled,
 
     //Font text
-    primary: #000,
-    secondary: #0e1621,
-    error: #ee1a1a,
+    primary: colors.$dark-font,
+    secondary: colors.$dark,
+    error: colors.$error-font,
   ),
   dark: (
     //Main Components
-    light: #2a3a49,
-    main: #17212b,
-    dark: #0e1621,
+    light: colors.$light,
+    main: colors.$main,
+    dark: colors.$dark,
 
-    //Interaction Components
-    highlight: #007cc8cc,
-    hover: #004c91,
-    disabled: #515a64,
+    //Button
+    highlight: colors.$highlight,
+    hover: colors.$hover,
+    disabled: colors.$disabled,
+
+    //Pagination
+    pagination-main: colors.$main,
+    pagination-hover: colors.$light,
+    pagination-disabled: colors.$disabled,
+
+    //Select
+    select-main: colors.$main,
+    select-hover: colors.$highlight,
+    select-disabled: colors.$disabled,
 
     //Font text
-    primary: #fff,
-    secondary: #b2bac2,
-    error: #ee1a1a,
+    primary: colors.$white-font,
+    secondary: colors.$secondary-font,
+    error: colors.$error-font,
   ),
 );
 

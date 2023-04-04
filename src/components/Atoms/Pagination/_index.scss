@@ -12,21 +12,21 @@
 
   @include themify($themes) {
     color: themed('primary');
-    background-color: themed('main');
+    background-color: themed('pagination-main');
     border: 2px solid themed('secondary');
   }
 
   &:disabled {
     @include themify($themes) {
-      color: themed('disabled');
-      border: 2px solid themed('disabled');
+      color: themed('pagination-disabled');
+      border: 2px solid themed('pagination-disabled');
     }
 
     &:hover {
       cursor: default;
 
       @include themify($themes) {
-        background-color: themed('main');
+        background-color: themed('pagination-main');
       }
     }
   }
@@ -47,7 +47,7 @@
       cursor: default;
 
       @include themify($themes) {
-        background-color: themed('main');
+        background-color: themed('pagination-main');
       }
     }
   }

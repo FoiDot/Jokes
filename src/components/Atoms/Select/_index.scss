@@ -16,7 +16,7 @@
 
   @include themify($themes) {
     border: 2px solid themed('highlight');
-    background-color: themed('main');
+    background-color: themed('select-main');
   }
 
   &:hover {
@@ -63,7 +63,7 @@
   align-items: center;
 
   @include themify($themes) {
-    background-color: themed('main');
+    background-color: themed('select-main');
   }
 
   &:hover {

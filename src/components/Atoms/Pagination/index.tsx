@@ -32,7 +32,7 @@ const Pagination = (props: Props) => {
       </button>
       <button
         type='button'
-        //disabled={page >= count}
+        //disabled={page >= count} // There's not count
         className='Pagination-button Pagination-icon'
         onClick={() => handlePagination(page + 1)}
       >
