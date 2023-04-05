@@ -1,6 +1,5 @@
 import './_index.scss';
-import { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
 
 // Custom components
 import Switch from 'components/Atoms/Switch';

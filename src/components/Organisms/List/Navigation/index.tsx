@@ -9,10 +9,11 @@ import { limitSelector } from 'dump/select';
 
 type Props = {
   onSubmit: Function;
+  count: number;
 };
 
 const ListNavigation = (props: Props) => {
-  const { onSubmit } = props;
+  const { onSubmit, count } = props;
 
   return (
     <Formik
@@ -27,7 +28,7 @@ const ListNavigation = (props: Props) => {
       }}
     >
       <Form className='ListNavigation-root'>
-        <Pagination name='_page' />
+        <Pagination name='_page' count={count} />
         <Select name='_limit' options={limitSelector} />
         <FormikObserver />
       </Form>

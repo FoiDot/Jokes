@@ -7,10 +7,11 @@ import Icon from 'components/Atoms/Icon';
 
 type Props = {
   name: string;
+  count: number;
 };
 
 const Pagination = (props: Props) => {
-  const { name } = props;
+  const { name, count } = props;
   const { values, setFieldValue } = useFormikContext<any>();
   const { [name]: page } = values;
 
@@ -33,7 +34,7 @@ const Pagination = (props: Props) => {
       </button>
       <button
         type='button'
-        //disabled={page >= count} // There's not count
+        disabled={page >= count}
         className='Pagination-button Pagination-icon'
         onClick={() => handlePagination(page + 1)}
       >

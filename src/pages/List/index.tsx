@@ -24,6 +24,7 @@ const params = {
 const List = () => {
   const [data, setData] = useState<any>([]);
   const [status, setStatus] = useState(set.LOADING);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     getJokes(params);
@@ -32,8 +33,10 @@ const List = () => {
   const getJokes = (params: Params) => {
     JokesProvider.getJokes(params)
       .then((response: any) => {
-        setData(response);
-        setStatus(response.length ? set.OK : set.EMPTY);
+        const isArray = Array.isArray(response);
+        setData(isArray ? [] : response.data);
+        setCount(isArray ? 1 : response.count);
+        setStatus(!isArray && response.data.length ? set.OK : set.EMPTY);
       })
       .catch((error: any) => console.error(error));
   };
@@ -59,7 +62,7 @@ const List = () => {
           </div>
         )}
       </div>
-      <Navigation onSubmit={onSubmit} />
+      <Navigation onSubmit={onSubmit} count={count} />
     </div>
   );
 };
