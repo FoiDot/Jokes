@@ -1,16 +1,9 @@
 import handleCall from '../../client';
+import { Joke } from 'types';
 
 type GetJokes = {
   _page: string;
   _limit: string;
-};
-
-type Joke = {
-  Title: string;
-  Body: string;
-  Author: string;
-  Views: number;
-  CreatedAt: string | number;
 };
 
 const getJokes = (params: GetJokes) => {

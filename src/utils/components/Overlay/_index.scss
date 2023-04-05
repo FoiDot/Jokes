@@ -10,6 +10,6 @@
   left: 0px;
 
   @include themify($themes) {
-    background-color: themed('dark');
+    background-color: themed('light');
   }
 }

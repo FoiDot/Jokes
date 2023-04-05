@@ -5,15 +5,11 @@ import { Link } from 'react-router-dom';
 import { Table, Thead, Tbody, Th, Td, Tr } from 'components/Atoms/Table';
 import ViewLabel from 'components/Atoms/ViewLabel';
 import { toDate, toEmail } from 'utils/formating';
+import { Joke as JorkeType } from 'types';
 
-type Joke = {
+interface Joke extends JorkeType {
   id: number;
-  Title: string;
-  Body: string;
-  Author: string;
-  Views: number;
-  CreatedAt: number;
-};
+}
 
 type Props = {
   data: [Joke];

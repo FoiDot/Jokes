@@ -11,14 +11,7 @@ import CircularLoader from 'components/Atoms/CircularLoader';
 import Snackbar from 'components/Atoms/Snackbar';
 import ErrorTemplate from 'components/Molecules/ErrorTemplate';
 import { set, check } from 'utils/componentStatus';
-
-type Joke = {
-  Title: string;
-  Body: string;
-  Author: string;
-  Views: number;
-  CreatedAt: string | number;
-};
+import { Joke } from 'types';
 
 type Snack = {
   message: string;
@@ -89,7 +82,7 @@ const Edit = () => {
 
   return (
     <div>
-      <Header handleDelete={handleDelete} hideDelete={check.empty(status) || check.error(status)} />
+      <Header handleDelete={handleDelete} hideDelete={!check.ok(status)} />
       {check.loading(status) && (
         <div className='Edit-root'>
           <CircularLoader />

@@ -7,15 +7,7 @@ import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
 import DateTimePicker from 'components/Atoms/DateTimePicker';
 import JokeSchema from 'schemas/jokeShema';
-
-type Joke = {
-  id: number;
-  Title: string;
-  Body: string;
-  Author: string;
-  Views: number;
-  CreatedAt: number;
-};
+import { Joke } from 'types';
 
 type Props = {
   onSubmit: Function;
