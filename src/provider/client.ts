@@ -9,20 +9,13 @@ const client = axios.create({
 const checkPagination = (response: any) => {
   if (response?.headers?.link) {
     try {
-      console.log('aca1');
       const count = parseLinkHeader(response.headers.link)?.last?._page;
-      console.log('aca2');
       const data = {
         data: response.data,
         count: parseInt(count || ''),
       };
-      console.log('aca3');
-      console.log(data);
-      console.log('aca4');
       response.data = data;
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
   return response.data;
 };
