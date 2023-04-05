@@ -60,6 +60,7 @@ const Edit = () => {
   };
 
   const deleteJoke = (id: string) => {
+    setStatus(set.LOADING);
     JokesProvider.deleteJoke(id)
       .then((response: any) => {
         setStatus(set.EMPTY);

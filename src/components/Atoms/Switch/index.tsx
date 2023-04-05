@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 
 type Props = {
   checked: boolean;
@@ -23,4 +24,14 @@ const Switch = (props: Props) => {
     </div>
   );
 };
+
+Switch.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
+Switch.defaultProps = {
+  checked: false,
+};
+
 export default Switch;

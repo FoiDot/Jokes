@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import { useFormikContext } from 'formik';
 
 // Custom Components
@@ -40,6 +41,14 @@ const Pagination = (props: Props) => {
       </button>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+Pagination.defaultProps = {
+  name: '',
 };
 
 export default Pagination;

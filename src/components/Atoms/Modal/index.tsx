@@ -47,11 +47,13 @@ Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   handleOpen: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  isSticky: PropTypes.bool,
 };
 
 Modal.defaultProps = {
   open: false,
   title: '',
+  isSticky: false,
 };
 
 export default Modal;

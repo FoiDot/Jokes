@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import * as Muicon from '@mui/icons-material';
 
 // Custom Components
@@ -17,6 +18,15 @@ const IconButton = (props: Props) => {
       <Icon iconName={iconName} className='IconButton-icon' onClick={onClick} />
     </button>
   );
+};
+
+IconButton.propTypes = {
+  iconName: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+IconButton.defaultProps = {
+  iconName: '',
 };
 
 export default IconButton;

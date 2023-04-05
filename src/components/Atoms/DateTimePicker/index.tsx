@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
 type Params = {
@@ -18,6 +19,14 @@ const DateTimePicker = (props: Params) => {
       {error && <span className='DateTimePicker-error'>{error}</span>}
     </>
   );
+};
+
+DateTimePicker.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+DateTimePicker.defaultProps = {
+  name: '',
 };
 
 export default DateTimePicker;

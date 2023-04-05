@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -32,6 +33,20 @@ const Button = (props: Props) => {
       {label}
     </button>
   );
+};
+
+Button.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+  to: PropTypes.string,
+  color: PropTypes.string,
+  disabled: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  label: '',
+  type: 'button',
 };
 
 export default Button;

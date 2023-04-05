@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
 type Params = {
@@ -19,6 +20,15 @@ const Input = (props: Params) => {
       {error && <span className='Input-error'>{error}</span>}
     </>
   );
+};
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
+
+Input.defaultProps = {
+  name: '',
 };
 
 export default Input;

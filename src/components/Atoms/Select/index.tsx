@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useFormikContext } from 'formik';
 
@@ -53,6 +54,15 @@ const Select = (props: Props) => {
       )}
     </div>
   );
+};
+
+Select.propTypes = {
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+};
+
+Select.defaultProps = {
+  name: '',
 };
 
 export default Select;

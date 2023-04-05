@@ -1,4 +1,5 @@
 import './_index.scss';
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 // Custom components
@@ -37,6 +38,19 @@ const Snackbar = (props: Props) => {
       )}
     </>
   );
+};
+
+Snackbar.propTypes = {
+  message: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};
+
+Snackbar.defaultProps = {
+  name: '',
+  type: 'Success',
+  open: false,
 };
 
 export default Snackbar;
